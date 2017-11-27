@@ -1,22 +1,23 @@
-@extends('layouts')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
 
-    <div class="container col-md-8 col-md-offset-3" >
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-        <div class="card text-white bg-success">
-
-            <div class="card-body" style="text-align: center;">
-
-            <h1 class="display-3">Jumbotron!</h1>
-
-            <p class="lead">This is a template for a simple marketing.</p>
-
-            <a class="btn btn-light btn-lg" href="#" role="button">Read more</a>
-
+                    You are logged in!
+                </div>
             </div>
         </div>
-    </div> <!--end containter-->
-    <hr>
-
+    </div>
+</div>
 @endsection
