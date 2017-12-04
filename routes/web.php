@@ -11,13 +11,24 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('home');
+    return view('AdminHome');
 });
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/UserHome', 'HomeController@index')->name('UserHome');
 
-Route::resource('profile', 'ProfileController');
+Route::resource('Profile', 'ProfileController');
+
+Route::get('/Profile', 'ProfileController@Profile');
+
+Route::post('/addProfile', 'ProfileController@addProfile')->name('addprofile');
+
+Route::get('/UserHome', 'ProfileController@showProfile')->name('showprofile');
+
+Route::get('/Profile', 'ProfileController@updateProfile')->name('updateprofile');
+
+
