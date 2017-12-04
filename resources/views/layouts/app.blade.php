@@ -37,8 +37,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                       
-                       <!--<li><a href="{{ route('showprofile') }}">Home</a></li>-->
-                       
                     </ul>
 
                     <!-- Right Side Of Navbar -->

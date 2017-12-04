@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
-    {
-        return view('home');
-    }
+        {
+        $user_id = Auth::user()->id; //below is joining two tables
+        
+        $profile =DB::table('users')
+                ->join('profiles', 'users.id', '=', 'profiles.users_id') 
+                ->select('users.*', 'profiles.*')
+                ->where(['profiles.users_id'=> $user_id])
+                ->first();
+
+                return view('UserHome', ['profile' => $profile]);
+                        
+        }
+
+
 }
